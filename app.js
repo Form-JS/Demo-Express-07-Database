@@ -1,4 +1,6 @@
 const express = require('express');
+const homeRouter = require('./routes/home-router');
+const messageRouter = require('./routes/message-router');
 
 // Chargement des variables d'environement
 require('dotenv-flow').config();
@@ -13,7 +15,14 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
-// TODO Ajouter le systeme de router (Repas avant :p)
+// Ajout le systeme de router
+app.use(homeRouter);
+app.use(messageRouter);
+
+// Erreur 404 custom (Après les routes !!!)
+app.use((req, res) => {
+    res.status(404).send('Perdu ? :o');
+});
 
 // Demarrage du serveur
 app.listen(PORT, () => {
