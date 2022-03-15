@@ -1,0 +1,10 @@
+Les dépendences necessaires : 
+- express   :   Framework JS pour créer des Web Serveurs
+- ejs       :   Moteur de template
+- yup       :   Bibliotheque de validation de form
+- mssql     :   Bibliotheque de connection à 'SQL Server'
+- nodemon   :   Auto run de script (DEV !!!)
+
+Les commandes sont :
+ npm install express ejs yup mssql
+ npm install nodemon --save-dev
