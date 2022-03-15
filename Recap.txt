@@ -5,6 +5,9 @@ Les dépendences necessaires :
 - mssql     :   Bibliotheque de connection à 'SQL Server'
 - nodemon   :   Auto run de script (DEV !!!)
 
+- dotenv-flow : Gestion des fichiers '.env'
+- cross-env   : Permet de définir la valeur de 'NODE_ENV' 
+
 Les commandes sont :
- npm install express ejs yup mssql
+ npm install express ejs yup mssql dotenv-flow cross-env
  npm install nodemon --save-dev

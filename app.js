@@ -1,8 +1,10 @@
 const express = require('express');
 
+// Chargement des variables d'environement
+require('dotenv-flow').config();
+
 // Variable de config
-const port = 8080;
-const mode = 'dev';
+const { PORT, NODE_ENV } = process.env;
 
 // Génération du serveur web
 const app = express();
@@ -14,6 +16,6 @@ app.set('views', './views');
 // TODO Ajouter le systeme de router (Repas avant :p)
 
 // Demarrage du serveur
-app.listen(port, () => {
-    console.log(`Server up on port ${port} [${mode}]`);
+app.listen(PORT, () => {
+    console.log(`Server up on port ${PORT} [${NODE_ENV}]`);
 });
