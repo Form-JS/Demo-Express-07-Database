@@ -5,6 +5,9 @@ const messageRouter = require('./routes/message-router');
 // Chargement des variables d'environement
 require('dotenv-flow').config();
 
+// Test de la base de donnée
+require('./utils/db-utils').testDbConnection();
+
 // Variable de config
 const { PORT, NODE_ENV } = process.env;
 
