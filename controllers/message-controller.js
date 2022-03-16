@@ -1,12 +1,15 @@
 const { messageSchema } = require('../data-validators/message-validator');
+const messageModel = require('../models/message-model');
 const { getErrorMessage } = require('../utils/error-utils');
 
 const messageController = {
 
     index: (req, res) => {
         // Affichage de la liste des messages
-
-        res.render('message/index', { title: 'Liste des messages' });
+        messageModel.getAll()
+            .then(messages => {
+                res.render('message/index', { title: 'Liste des messages', messages });
+            });
     },
 
     detail: (req, res) => {
@@ -29,9 +32,12 @@ const messageController = {
         // Permet de traiter les donnée du formulaire
         messageSchema.validate(req.body, { abortEarly: false })
             .then((data) => {
-                console.log('data', data);
-
-                // TODO Ajouter dans la DB 
+                messageModel.insert({
+                    pseudo: data.pseudo,
+                    content: data.msg
+                }).then(id => {
+                    console.log(`Message ${id}`);
+                });
 
                 res.redirect('/message');
             })
