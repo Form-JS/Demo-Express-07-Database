@@ -12,7 +12,9 @@
     </div>
     <div>
         <label for="msg">Message</label>
-        <input type="text" name="msg" id="msg" value="<%= data['msg'] %>" required>
+        <textarea name="text" id="text" required>
+            <%= data['msg'] %>
+        </textarea>
         <% if(errors && errors['msg']) { %>
         <span class="label-error"><%= errors['msg'] %></span>
         <% } %>
