@@ -18,6 +18,9 @@ app.set('views', './views');
 // Ajout des dossiers statiques
 app.use(express.static('public'));
 
+// Ajout du middleware pour les données "application/x-www-form-urlencoded"
+app.use(express.urlencoded({ extended: true }));
+
 // Ajout le systeme de router
 app.use(homeRouter);
 app.use(messageRouter);
