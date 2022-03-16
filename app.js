@@ -15,6 +15,9 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set('views', './views');
 
+// Ajout des dossiers statiques
+app.use(express.static('public'));
+
 // Ajout le systeme de router
 app.use(homeRouter);
 app.use(messageRouter);
