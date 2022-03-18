@@ -16,11 +16,11 @@ const testDbConnection = async () => {
     try {
         const db = await createDbConnection();
         db.close();
-        console.log('Connection DB OK');
+        console.log('Connection DB - OK');
     }
     catch (error) {
+        console.log('Connection DB - Error');
         console.error(error.message);
-        process.exit();
     }
 };
 
