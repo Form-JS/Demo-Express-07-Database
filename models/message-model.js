@@ -53,8 +53,6 @@ const messageModel = {
             request.input('createDate', mssql.DateTime2, new Date());
 
             const result = await request.query(querySQL);
-            console.log(result);
-
             return result.recordset[0]['MessageId'];
         }
         finally {
